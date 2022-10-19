@@ -1,28 +1,28 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    char ch;
-    char a,b;
     int number = 0;
-    int continue_number = 0;
+    int a = 0;
+    char ch;
+    char A[100];
 
+    printf("Enter an strings:\n");
     while((ch = getchar()) != '#')
     {
-        continue_number++;
-        if(continue_number % 2 != 0)
-        {
-            if(ch == 'e')
-                a = ch;
-            else if(ch == 'i')
-                b = ch;
-        }
-        else
-            a = b ='1';
-        if(a == 'e' && b == 'i')
-            number++;
+        A[a] = ch;
+        a++;
     }
-    printf("\"ei\"出现的次数为:%d",number);
+    for(int i = 0;i < strlen(A);i++)
+    {
+        if(i > 0)
+        {
+            if('i' == A[i] && 'e' == A[(i-1)])
+                number++;
+        }
+    }
+    printf("the number of the strings \"ei\" is %d",number);
 
     return 0;
 }
